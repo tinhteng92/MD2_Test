@@ -97,9 +97,6 @@ public class ProductManagement {
             int id = Integer.parseInt(scanner.nextLine());
             for (int i = 0; i < productList.size(); i++) {
                 if (productList.get(i).getId() == id) {
-                    System.out.println("Nhập id cần sửa: ");
-                    int id1 = Integer.parseInt(scanner.nextLine());
-                    productList.get(i).setId(id1);
                     System.out.println("Nhập tên: ");
                     String name = scanner.nextLine();
                     productList.get(i).setName(name);
@@ -109,15 +106,19 @@ public class ProductManagement {
                     System.out.println("Nhập giá số lượng sản phẩm: ");
                     int quantity = Integer.parseInt(scanner.nextLine());
                     productList.get(i).setQuantity(quantity);
-                    System.out.println("Nhập giá số lượng sản phẩm: ");
+                    System.out.println("Nhập miêu tả sản phẩm: ");
                     String description = scanner.nextLine();
                     productList.get(i).setDescription(description);
                     System.out.println(productList.get(i).toString());
+                    menu();
+                }else {
+                    throw new Exception();
                 }
             }
 
         }catch (Exception e){
             System.out.println("Sản phẩm không tồn tại!");
+            menu();
         }
 
 
